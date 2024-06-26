@@ -1,6 +1,7 @@
 package tiny.grape.module.combat;
 
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.settings.ModeSetting;
@@ -8,12 +9,12 @@ import tiny.grape.utils.FindItemResult;
 import tiny.grape.utils.InventoryUtils;
 
 public class AutoOffhand extends ModuleHandler {
-    public ModeSetting mode = new ModeSetting("Mode", "Totem", "Totem", "Exp Bottle", "Gapple");
+    public ModeSetting mode = new ModeSetting("Mode", "Totem", "Totem", "Exp Bottle", "Shield");
 
     private static final Formatting Gray = Formatting.GRAY;
 
     public AutoOffhand() {
-        super("Auto Offhand", "wowsers", Category.COMBAT);
+        super("Auto Offhand", "a", Category.COMBAT);
         addSetting(mode);
     }
 
@@ -32,10 +33,10 @@ public class AutoOffhand extends ModuleHandler {
                 InventoryUtils.move().from(iTotem.getSlot()).toOffhand();
             } else return;
         }
-        if(mode.isMode("Gapple") && client.player.getOffHandStack().getItem() != Items.GOLDEN_APPLE && client.player.getOffHandStack().getItem() != Items.ENCHANTED_GOLDEN_APPLE) {
-            FindItemResult iApple = InventoryUtils.find(itemStack -> itemStack.getItem() == Items.ENCHANTED_GOLDEN_APPLE, 0, 35);
-            if(iApple.found()) {
-                InventoryUtils.move().from(iApple.getSlot()).toOffhand();
+        if(mode.isMode("Shield") && client.player.getOffHandStack().getItem() != Items.SHIELD) {
+            FindItemResult iShield = InventoryUtils.find(itemStack -> itemStack.getItem() == Items.SHIELD, 0, 35);
+            if(iShield.found()) {
+                InventoryUtils.move().from(iShield.getSlot()).toOffhand();
             } else return;
         }
         super.onTick();

@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "enderite-utility-mod",
+	"version": "${version}",
+	"name": "Enderite Utility Mod",
+	"description": "Utility",
+	"authors": [
+		"Grape"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/enderite-utility-mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"tiny.grape.ClientEnderiteUtilityMod"
+		]
+	},
+	"mixins": [
+		"enderite-utility-mod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": ">=1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}

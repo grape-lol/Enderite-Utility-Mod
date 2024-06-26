@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "tiny.grape.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"FishingBobberEntityMixin",
+		"MinecraftClientMixin",
+		"KeyboardMixin",
+		"InGameHudMixin",
+		"BlockMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

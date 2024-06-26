@@ -7,7 +7,7 @@
 	"authors": [
 		"Grape"
 	],
-	"license": "CC0-1.0",
+	"license": "GPL-3.0-or-later",
 	"icon": "assets/enderite-utility-mod/icon.png",
 	"environment": "*",
 	"entrypoints": {

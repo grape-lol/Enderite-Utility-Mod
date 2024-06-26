@@ -53,5 +53,6 @@ public class ModuleManager {
         modules.add(new XRay());
         modules.add(new AutoFarm());
         modules.add(new TridentBoost());
+        modules.add(new BarrierESP());
     }
 }

@@ -26,7 +26,7 @@ public class Slider extends Component{
         double diff = Math.min(parent.parent.width, Math.max(0, mouseX-parent.parent.x));
         int renderWidth = (int)(parent.parent.width * (numSet.getValue() - numSet.getMin()) / (numSet.getMax() - numSet.getMin()));
 
-        context.fill(parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x+renderWidth, parent.parent.y + parent.offset + offset + parent.parent.height, Color.red.getRGB());
+        context.fill(parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x+renderWidth, parent.parent.y + parent.offset + offset + parent.parent.height, new Color(128, 36, 231).getRGB());
 
         if(sliding){
             if(diff==0) {

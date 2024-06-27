@@ -40,7 +40,7 @@ public class Frame {
         context.fill(x, y, x + width, y + height, Color.darkGray.getRGB());
         int offset = ((height / 2) - client.textRenderer.fontHeight / 2);
 
-        context.drawText(client.textRenderer, category.name, x + offset, y + offset, Color.red.brighter().getRGB(), true);
+        context.drawText(client.textRenderer, category.name(), x + offset, y + offset, new Color(128, 36, 231).getRGB(), true);
         context.drawText(client.textRenderer, extended ? "-" : "+", x + width - offset - 2 - client.textRenderer.getWidth("+"), y + offset, Color.white.getRGB(), true);
 
         if (extended) {
@@ -69,7 +69,7 @@ public class Frame {
     }
 
     public void mouseReleased(double mouseX, double mouseY, int button) {
-        if ((button == 0 && dragging == true)) dragging = false;
+        if (button == 0 && dragging) dragging = false;
 
         for (ModuleButton mb : buttons) {
             mb.mouseReleased(mouseX, mouseY, button);
@@ -95,7 +95,7 @@ public class Frame {
             offset += height;
 
             if (button.extended) {
-                for (Component component : button.components) {
+                for (tiny.grape.gui.screens.clickgui.settings.Component component : button.components) {
                     if (component.setting.isVisble()) offset += height;
                 }
             }
@@ -106,6 +106,5 @@ public class Frame {
         for (ModuleButton mb : buttons) {
             mb.keyPressed(key);
         }
-
     }
 }

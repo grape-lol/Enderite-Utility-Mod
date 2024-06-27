@@ -54,5 +54,6 @@ public class ModuleManager {
         modules.add(new AutoFarm());
         modules.add(new TridentBoost());
         modules.add(new BarrierESP());
+        modules.add(new FastMine());
     }
 }

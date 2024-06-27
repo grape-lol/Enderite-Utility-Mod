@@ -11,7 +11,7 @@ import java.util.List;
 public class ClickGUI extends Screen {
     public static final ClickGUI INSTANCE = new ClickGUI();
 
-    private List<Frame> frames;
+    private final List<Frame> frames;
 
     private ClickGUI() {
         super(Text.translatable("enderite.clickgui.text"));
@@ -20,8 +20,8 @@ public class ClickGUI extends Screen {
         int offset = 20;
 
         for (ModuleHandler.Category category : ModuleHandler.Category.values()) {
-            frames.add(new Frame(category, offset, 20, 100, 20));
-            offset += 120;
+            frames.add(new Frame(category, offset, 20, 120, 20));
+            offset += 140;
         }
     }
 
@@ -36,7 +36,7 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        for  (Frame frame : frames) {
+        for (Frame frame : frames) {
             frame.mouseClicked(mouseX, mouseY, button);
         }
         return super.mouseClicked(mouseX, mouseY, button);
@@ -44,10 +44,9 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        for  (Frame frame : frames) {
+        for (Frame frame : frames) {
             frame.mouseReleased(mouseX, mouseY, button);
         }
-
         return super.mouseReleased(mouseX, mouseY, button);
     }
 
@@ -58,5 +57,4 @@ public class ClickGUI extends Screen {
         }
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
-
 }

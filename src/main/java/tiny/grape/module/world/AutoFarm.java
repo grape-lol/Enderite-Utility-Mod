@@ -48,8 +48,6 @@ public class AutoFarm extends ModuleHandler {
         }
     }
 
-
-
     @Override
     public void onDisable() {
         super.onDisable();

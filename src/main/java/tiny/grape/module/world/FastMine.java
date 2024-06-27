@@ -3,11 +3,11 @@ package tiny.grape.module.world;
 import tiny.grape.module.ModuleHandler;
 
 public class FastMine extends ModuleHandler {
+    private static boolean enabled = false;
+
     public FastMine() {
         super("Fast Mine", "Breaks blocks faster", Category.WORLD);
     }
-
-    private static boolean enabled = false;
 
     public static boolean checkEnable() {
         return enabled;

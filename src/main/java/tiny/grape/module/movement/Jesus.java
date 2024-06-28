@@ -4,10 +4,12 @@ import net.minecraft.client.option.GameOptions;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Vec3d;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 import tiny.grape.module.settings.NumberSetting;
 
+@SearchTags({"water walk","waterwalk","jesus","dolphin"})
 public class Jesus extends ModuleHandler {
     public ModeSetting mode = new ModeSetting("Mode", "Static", "Static", "Velocity", "Dolphin");
     public NumberSetting speed = new NumberSetting("Factor", 1, 10, 1, 1);

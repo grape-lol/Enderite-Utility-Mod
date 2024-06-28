@@ -3,7 +3,9 @@ package tiny.grape.module.movement;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.util.math.Vec3d;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 
+@SearchTags({"spider","wall walk","wallwalk"})
 public class Spider extends ModuleHandler {
     public Spider() {
         super("Spider", "Walk up walls.", Category.MOVEMENT);

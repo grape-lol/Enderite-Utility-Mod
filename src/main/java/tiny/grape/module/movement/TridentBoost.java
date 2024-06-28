@@ -3,9 +3,11 @@ package tiny.grape.module.movement;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.NumberSetting;
 
+@SearchTags({"trident boost", "trident fly"})
 public class TridentBoost extends ModuleHandler {
     NumberSetting factor = new NumberSetting("Factor", 1, 10, 3, 1);
     NumberSetting upFactor = new NumberSetting("Up Factor", 1, 10, 3, 1);

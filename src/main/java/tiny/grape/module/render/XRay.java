@@ -2,11 +2,13 @@ package tiny.grape.module.render;
 
 import net.minecraft.block.BlockState;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 
 import java.util.HashSet;
 import java.util.logging.Logger;
 
+@SearchTags({"xray","x-ray","x ray","ore finder","orefinder"})
 public class XRay extends ModuleHandler {
     private static final Logger LOGGER = Logger.getLogger(XRay.class.getName());
 

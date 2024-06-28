@@ -7,6 +7,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.NumberSetting;
 
@@ -17,6 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+@SearchTags({"bed", "bed breaker"})
 public class BedBreaker extends ModuleHandler {
     private final MinecraftClient mc = MinecraftClient.getInstance();
     private final Random random = new Random();

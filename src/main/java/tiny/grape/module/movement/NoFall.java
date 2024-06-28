@@ -3,11 +3,13 @@ package tiny.grape.module.movement;
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.BooleanSetting;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 import tiny.grape.module.settings.NumberSetting;
 
+@SearchTags({"nofall", "no fall", "fall damage"})
 public class NoFall extends ModuleHandler {
     public ModeSetting mode = new ModeSetting("Mode", "On Ground", "On Ground", "Break Fall");
 

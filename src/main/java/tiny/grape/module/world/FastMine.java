@@ -1,8 +1,12 @@
 package tiny.grape.module.world;
 
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 
+@SearchTags({"FastMine", "SpeedMine", "fast break",
+        "fast mine", "speed mine", "NoBreakDelay",
+        "no break delay"})
 public class FastMine extends ModuleHandler {
     private static boolean enabled = false;
 

@@ -4,9 +4,11 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.NumberSetting;
 
+@SearchTags({"farm", "auto farm", "auto harvest"})
 public class AutoFarm extends ModuleHandler {
     public NumberSetting range = new NumberSetting("Range", 1f, 5f, 4f, 1f);
 

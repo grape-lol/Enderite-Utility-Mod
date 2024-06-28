@@ -2,8 +2,10 @@ package tiny.grape.module.world;
 
 import net.minecraft.util.Hand;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 
+@SearchTags({"fish", "auto fish"})
 public class AutoFish extends ModuleHandler {
     public static int recastRod = -1;
     private static boolean enabled = false;

@@ -2,9 +2,11 @@ package tiny.grape.module.movement;
 
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 
+@SearchTags({"sprint"})
 public class Sprint extends ModuleHandler {
     public ModeSetting sprintMode = new ModeSetting("Mode", "Legit", "Legit", "Always Sprinting");
 

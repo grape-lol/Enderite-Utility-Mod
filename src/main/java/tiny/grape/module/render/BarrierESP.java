@@ -1,7 +1,9 @@
 package tiny.grape.module.render;
 
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 
+@SearchTags({"barrier esp", "BarrierESP"})
 public class BarrierESP extends ModuleHandler {
     public BarrierESP() {
         super("Barrier ESP", "Lets you see barriers without holding a barrier.", Category.RENDER);

@@ -1,8 +1,10 @@
 package tiny.grape.module.movement;
 
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 
+@SearchTags({"fly", "flight"})
 public class Flight extends ModuleHandler {
     public Flight() {
         super("Flight", "bro is superman", Category.MOVEMENT);

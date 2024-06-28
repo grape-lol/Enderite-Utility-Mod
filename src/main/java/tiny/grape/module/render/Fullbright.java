@@ -5,9 +5,11 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 
+@SearchTags({"night vision", "gamma","nightvision","fullbright"})
 public class Fullbright extends ModuleHandler {
     public ModeSetting fbMode = new ModeSetting("Mode", "Night Vision", "Night Vision", "Gamma");
     private SimpleOption<Double> originalGamma;

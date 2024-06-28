@@ -12,7 +12,7 @@ import tiny.grape.module.settings.NumberSetting;
 @SearchTags({"water walk","waterwalk","jesus","dolphin"})
 public class Jesus extends ModuleHandler {
     public ModeSetting mode = new ModeSetting("Mode", "Static", "Static", "Velocity", "Dolphin");
-    public NumberSetting speed = new NumberSetting("Factor", 1, 10, 1, 1);
+    public NumberSetting speed = new NumberSetting("Static Speed", 1, 10, 1, 1);
     public NumberSetting velStrength = new NumberSetting("Velocity Strength", 0.0003, 0.3, 0.1, 0.0001);
 
     public Jesus() {

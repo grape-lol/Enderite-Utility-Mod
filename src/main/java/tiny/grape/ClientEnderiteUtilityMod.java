@@ -19,7 +19,7 @@ public class ClientEnderiteUtilityMod implements ModInitializer, ClientModInitia
 
 	private MinecraftClient client = MinecraftClient.getInstance();
 
-	@Override
+    @Override
 	public void onInitializeClient() {
 	}
 	@Override

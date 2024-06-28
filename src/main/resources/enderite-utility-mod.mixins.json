@@ -9,6 +9,7 @@
     "ClientPlayerInteractionManagerMixin",
     "InGameHudMixin",
     "KeyboardMixin",
+    "ClientConnectionInvoker",
     "MinecraftClientMixin"
   ],
   "injectors": {

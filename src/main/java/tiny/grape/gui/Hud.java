@@ -2,6 +2,9 @@ package tiny.grape.gui;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.ModuleManager;
 

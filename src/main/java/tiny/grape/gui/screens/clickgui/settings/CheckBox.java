@@ -7,7 +7,7 @@ import tiny.grape.module.settings.SettingsHandler;
 
 import java.awt.*;
 
-public class CheckBox extends Component{
+public class CheckBox extends Component {
     private BooleanSetting boolSet = (BooleanSetting) setting;
 
     public CheckBox(SettingsHandler setting, ModuleButton parent, int offset) {

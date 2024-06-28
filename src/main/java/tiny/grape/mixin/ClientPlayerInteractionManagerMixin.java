@@ -25,11 +25,11 @@ public class ClientPlayerInteractionManagerMixin {
         if (FastMine.checkEnable()) {
             BlockState blockState = client.world.getBlockState(pos);
             double speed = blockState.calcBlockBreakingDelta(client.player, client.world, pos);
-            if (!blockState.isAir() && speed > 0.5F) {  // If you can break the block fast enough, break it instantly
+            if (!blockState.isAir() && speed > 0.5F) {
                 client.world.breakBlock(pos, true, client.player);
                 networkHandler.sendPacket(new PlayerActionC2SPacket(PlayerActionC2SPacket.Action.START_DESTROY_BLOCK, pos, direction));
                 networkHandler.sendPacket(new PlayerActionC2SPacket(PlayerActionC2SPacket.Action.STOP_DESTROY_BLOCK, pos, direction));
-                cir.setReturnValue(true);  // Return true to break the block on the client-side
+                cir.setReturnValue(true);
             }
         }
     }

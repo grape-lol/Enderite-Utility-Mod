@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 public class NumberSetting extends SettingsHandler {
     private double min, max, increment;
     private double value;
-    private DecimalFormat df = new DecimalFormat("#.##"); // Format to 2 decimal places
+    private DecimalFormat df = new DecimalFormat("#.##");
 
     public NumberSetting(String name, double min, double max, double defaultV, double increment) {
         super(name);

@@ -336,8 +336,6 @@ public class InventoryUtils {
             to(InventoryUtils.ARMOR_START + (3 - i));
         }
 
-        // Slot
-
         public void slotId(int id) {
             from = to = id;
             run();
@@ -362,8 +360,6 @@ public class InventoryUtils {
         public void slotArmor(int i) {
             slot(InventoryUtils.ARMOR_START + (3 - i));
         }
-
-        // Other
 
         private void run() {
             boolean hadEmptyCursor = mc.player.currentScreenHandler.getCursorStack().isEmpty();
@@ -504,7 +500,6 @@ public class InventoryUtils {
     private static int[] getInventorySlots(boolean offhand) {
         int[] i = new int[offhand ? 38 : 37];
 
-        // Add hand slots first
         i[0] = mc.player.getInventory().selectedSlot;
         i[1] = 40;
 

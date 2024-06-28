@@ -5,6 +5,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 

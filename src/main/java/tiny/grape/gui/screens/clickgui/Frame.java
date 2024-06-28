@@ -2,11 +2,10 @@ package tiny.grape.gui.screens.clickgui;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import tiny.grape.gui.screens.clickgui.settings.Component;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.ModuleManager;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 

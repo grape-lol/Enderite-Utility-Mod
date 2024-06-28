@@ -4,6 +4,8 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.Identifier;
 import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +32,7 @@ public class ClientEnderiteUtilityMod implements ModInitializer, ClientModInitia
 				if (key == module.getKey()) module.toggle();
 			}
 
-			if(key == GLFW.GLFW_KEY_RIGHT_SHIFT) client.setScreen(ClickGUI.INSTANCE);
+			if(key == GLFW.GLFW_KEY_RIGHT_ALT) client.setScreen(ClickGUI.INSTANCE);
 		}
 	}
 

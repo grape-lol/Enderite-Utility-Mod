@@ -6,7 +6,7 @@ import tiny.grape.gui.screens.clickgui.settings.*;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.settings.*;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 

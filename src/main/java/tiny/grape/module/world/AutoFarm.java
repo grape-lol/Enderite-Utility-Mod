@@ -1,8 +1,15 @@
 package tiny.grape.module.world;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
@@ -35,6 +42,7 @@ public class AutoFarm extends ModuleHandler {
                 for (int z = -radius; z <= radius; z++) {
                     BlockPos currentPos = playerPos.add(x, y, z);
 
+                    // Harvest sugar cane
                     if (client.world.getBlockState(currentPos).getBlock() == Blocks.SUGAR_CANE) {
                         BlockPos belowPos = currentPos.down();
                         if (client.world.getBlockState(belowPos).getBlock() == Blocks.SUGAR_CANE) {
@@ -45,9 +53,41 @@ public class AutoFarm extends ModuleHandler {
                             }
                         }
                     }
+
+                    // Attempt to plant seeds
+                    tryPlant(client, currentPos);
                 }
             }
         }
+    }
+
+    private void tryPlant(MinecraftClient client, BlockPos pos) {
+        BlockState blockState = client.world.getBlockState(pos);
+        if (blockState.getBlock() == Blocks.FARMLAND) {
+            BlockPos abovePos = pos.up();
+            BlockState blockStateUp = client.world.getBlockState(abovePos);
+            if (blockStateUp.getBlock() == Blocks.AIR) {
+                if (tryUseSeed(client, abovePos, Hand.MAIN_HAND) || tryUseSeed(client, abovePos, Hand.OFF_HAND)) {
+                }
+            }
+        }
+    }
+
+    private boolean tryUseSeed(MinecraftClient client, BlockPos pos, Hand hand) {
+        if (client.player == null) {
+            return false;
+        }
+
+        Item item = client.player.getStackInHand(hand).getItem();
+        if (item == Items.WHEAT_SEEDS || item == Items.BEETROOT_SEEDS || item == Items.POTATO ||
+                item == Items.CARROT || item == Items.MELON_SEEDS || item == Items.PUMPKIN_SEEDS) {
+
+            Vec3d blockPos = new Vec3d(pos.getX(), pos.getY(), pos.getZ());
+            BlockHitResult hit = new BlockHitResult(blockPos, Direction.UP, pos, false);
+            client.interactionManager.interactBlock(client.player, hand, hit);
+            return true;
+        }
+        return false;
     }
 
     @Override

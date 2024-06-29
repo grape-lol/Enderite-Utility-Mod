@@ -4,6 +4,7 @@ import tiny.grape.module.combat.*;
 import tiny.grape.module.movement.*;
 import tiny.grape.module.render.*;
 import tiny.grape.module.world.*;
+import tiny.grape.module.misc.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +56,7 @@ public class ModuleManager {
         modules.add(new TridentBoost());
         modules.add(new BarrierESP());
         modules.add(new FastMine());
+        modules.add(new VehicleFly());
         modules.add(new BedBreaker());
     }
 }

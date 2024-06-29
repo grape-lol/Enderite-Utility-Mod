@@ -18,7 +18,6 @@ public class PacketHelper {
     }
 
     public static Vec3d fixCoords(Vec3d pos) {
-        // Additional logic to adjust coordinates if needed
         return pos;
     }
 }

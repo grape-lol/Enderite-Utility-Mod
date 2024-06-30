@@ -3,23 +3,8 @@ package tiny.grape.utils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Hand;
 
-public class FindItemResult {
+public record FindItemResult(int slot, int count) {
     public static MinecraftClient mc = MinecraftClient.getInstance();
-
-    private final int slot, count;
-
-    public FindItemResult(int slot, int count) {
-        this.slot = slot;
-        this.count = count;
-    }
-
-    public int getSlot() {
-        return slot;
-    }
-
-    public int getCount() {
-        return count;
-    }
 
     public boolean found() {
         return slot != -1;

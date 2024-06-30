@@ -8,6 +8,7 @@ import tiny.grape.mixin.ClientConnectionInvoker;
 public class PacketHelper {
     private static final MinecraftClient client = MinecraftClient.getInstance();
 
+    // Positon packet
     public static void sendPosition(Vec3d pos) {
         if (client.player != null && client.getNetworkHandler() != null) {
             ClientConnectionInvoker conn = (ClientConnectionInvoker) client.getNetworkHandler().getConnection();

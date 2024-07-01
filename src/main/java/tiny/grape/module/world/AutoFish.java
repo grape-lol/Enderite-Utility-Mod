@@ -1,5 +1,6 @@
 package tiny.grape.module.world;
 
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
@@ -11,7 +12,7 @@ public class AutoFish extends ModuleHandler {
     private static boolean enabled = false;
 
     public AutoFish() {
-        super("Auto Fish", "fisher", Category.WORLD);
+        super("Auto Fish", Text.translatable("enderite.description.autofish"), Category.WORLD);
         addSetting(new KeyBindSetting("Keybind", 0));
     }
 

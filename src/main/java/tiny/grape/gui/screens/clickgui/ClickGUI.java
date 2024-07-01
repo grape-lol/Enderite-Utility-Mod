@@ -2,6 +2,7 @@ package tiny.grape.gui.screens.clickgui;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
 
@@ -12,6 +13,7 @@ public class ClickGUI extends Screen {
     public static final ClickGUI INSTANCE = new ClickGUI();
 
     private final List<Frame> frames;
+    private MutableText hoveredModuleDescription = null;
 
     private ClickGUI() {
         super(Text.translatable("enderite.clickgui.text"));
@@ -27,10 +29,20 @@ public class ClickGUI extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        hoveredModuleDescription = null;
+
         for (Frame frame : frames) {
             frame.render(context, mouseX, mouseY, delta);
             frame.updatePos(mouseX, mouseY);
+            if (frame.getHoveredModuleDescription() != null) {
+                hoveredModuleDescription = frame.getHoveredModuleDescription();
+            }
         }
+
+        if (hoveredModuleDescription != null) {
+            context.drawText(client.textRenderer, hoveredModuleDescription, 10, height - 20, 0xFFFFFF, true);
+        }
+
         super.render(context, mouseX, mouseY, delta);
     }
 

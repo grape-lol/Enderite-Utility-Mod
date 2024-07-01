@@ -1,12 +1,13 @@
 package tiny.grape.module.render;
 
+import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 
 @SearchTags({"barrier esp", "BarrierESP"})
 public class BarrierESP extends ModuleHandler {
     public BarrierESP() {
-        super("Barrier ESP", "Lets you see barriers without holding a barrier.", Category.RENDER);
+        super("Barrier ESP", Text.translatable("enderite.description.barrieresp"), Category.RENDER);
     }
 
     private static boolean enabled = false;

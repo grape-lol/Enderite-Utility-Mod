@@ -1,9 +1,11 @@
 package tiny.grape.module.combat;
 
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
+import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 import tiny.grape.utils.FindItemResult;
 import tiny.grape.utils.InventoryUtils;
@@ -15,8 +17,9 @@ public class AutoOffhand extends ModuleHandler {
     private static final Formatting Gray = Formatting.GRAY;
 
     public AutoOffhand() {
-        super("Auto Offhand", "a", Category.COMBAT);
+        super("Auto Offhand", Text.translatable("enderite.description.autooffhand"), Category.COMBAT);
         addSetting(mode);
+        addSetting(new KeyBindSetting("Keybind", 0));
     }
 
     @Override

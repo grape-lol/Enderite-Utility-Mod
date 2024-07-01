@@ -1,3 +1,19 @@
 {
-  "enderite.clickgui.text": "Click GUI"
+  "enderite.clickgui.text": "Click GUI",
+  "enderite.description.autooffhand": "Automatically puts stuff in your offhand.",
+  "enderite.description.autorespawn": "Automatically makes you respawn.",
+  "enderite.description.flight": "Allows you to jump infinite times with no delay.",
+  "enderite.description.jesus": "Allows you to move through water fast.",
+  "enderite.description.nofall": "Makes it so you cant take fall damage.",
+  "enderite.description.spider": "Lets you crawl up walls like spiders.",
+  "enderite.description.sprint": "Automatically makes you sprint.",
+  "enderite.description.tridentboost": "Boosts your farther when using the trident.",
+  "enderite.description.vehiclefly": "Allows you to jump infinite times with no delay in vehicles.",
+  "enderite.description.barrieresp": "Lets you see barriers without holding the item.",
+  "enderite.description.fullbright": "Lets you see in dark areas.",
+  "enderite.description.xray": "(Broken)",
+  "enderite.description.autofarm": "Automatically places seeds and harvests sugar cane.",
+  "enderite.description.autofish": "Automatically reel in the fishing rod and cast it.",
+  "enderite.description.bedbreaker": "Breaks beds automatically.",
+  "enderite.description.fastmine": "Allows you to break blocks faster."
 }

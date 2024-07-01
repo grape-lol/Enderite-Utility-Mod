@@ -3,6 +3,7 @@ package tiny.grape.module.world;
 import net.minecraft.block.BedBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -28,7 +29,7 @@ public class BedBreaker extends ModuleHandler {
     public NumberSetting num = new NumberSetting("Radius", 1, 5, 3, 1);
 
     public BedBreaker() {
-        super("Bed Breaker", "Breaks beds near you.", Category.WORLD);
+        super("Bed Breaker", Text.translatable("enderite.description.bedbreaker"), Category.WORLD);
         addSetting(num);
         addSetting(new KeyBindSetting("Keybind", 0));
     }

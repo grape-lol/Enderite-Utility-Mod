@@ -85,4 +85,9 @@ public class ModuleButton {
             component.keyPressed(key);
         }
     }
+
+    public ModuleHandler getModule() {
+        return module;
+    }
+
 }

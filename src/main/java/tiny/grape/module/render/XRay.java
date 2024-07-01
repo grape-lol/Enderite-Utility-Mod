@@ -1,6 +1,7 @@
 package tiny.grape.module.render;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
@@ -17,7 +18,7 @@ public class XRay extends ModuleHandler {
     private HashSet<String> xrayBlocks = new HashSet<>();
 
     public XRay() {
-        super("XRay", "See through specific blocks", Category.RENDER);
+        super("XRay", Text.translatable("enderite.description.xray"), Category.RENDER);
         addSetting(new KeyBindSetting("Keybind", 0));
         rayBlocks();
     }

@@ -1,6 +1,7 @@
 package tiny.grape.module;
 
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.MutableText;
 import tiny.grape.module.settings.SettingsHandler;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class ModuleHandler {
     private String name;
-    private String description;
+    private MutableText description;
     private String displayName;
     private Category category;
     private int key;
@@ -18,7 +19,7 @@ public class ModuleHandler {
 
     protected MinecraftClient client = MinecraftClient.getInstance();
 
-    public ModuleHandler(String name, String description, Category category) {
+    public ModuleHandler(String name, MutableText description, Category category) {
         this.name = name;
         this.displayName = name;
         this.description = description;
@@ -72,11 +73,11 @@ public class ModuleHandler {
         this.displayName = displayName;
     }
 
-    public String getDescription() {
+    public MutableText getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(MutableText description) {
         this.description = description;
     }
 

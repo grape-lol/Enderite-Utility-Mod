@@ -1,6 +1,7 @@
 package tiny.grape.module.movement;
 
 import net.minecraft.client.option.GameOptions;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Vec3d;
 import tiny.grape.module.ModuleHandler;
@@ -16,7 +17,7 @@ public class Jesus extends ModuleHandler {
     public NumberSetting velStrength = new NumberSetting("Velocity Strength", 0.0003, 0.3, 0.1, 0.0001);
 
     public Jesus() {
-        super("Jesus", "Lets you walk on water.", Category.MOVEMENT);
+        super("Jesus", Text.translatable("enderite.description.jesus"), Category.MOVEMENT);
         addSetting(mode);
         addSetting(speed);
         addSetting(velStrength);

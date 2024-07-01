@@ -2,6 +2,8 @@ package tiny.grape.gui.screens.clickgui;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.ModuleManager;
 
@@ -15,6 +17,7 @@ public class Frame {
     public boolean dragging, extended;
 
     private List<ModuleButton> buttons;
+    private MutableText hoveredModuleDescription = null;
 
     protected MinecraftClient client = MinecraftClient.getInstance();
 
@@ -36,6 +39,8 @@ public class Frame {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        hoveredModuleDescription = null; // Reset at the beginning
+
         context.fill(x, y, x + width, y + height, Color.darkGray.getRGB());
         int offset = ((height / 2) - client.textRenderer.fontHeight / 2);
 
@@ -45,6 +50,9 @@ public class Frame {
         if (extended) {
             for (ModuleButton button : buttons) {
                 button.render(context, mouseX, mouseY, delta);
+                if (button.isHovered(mouseX, mouseY)) {
+                    hoveredModuleDescription = button.getModule().getDescription();
+                }
             }
         }
     }
@@ -105,5 +113,9 @@ public class Frame {
         for (ModuleButton mb : buttons) {
             mb.keyPressed(key);
         }
+    }
+
+    public MutableText getHoveredModuleDescription() {
+        return hoveredModuleDescription;
     }
 }

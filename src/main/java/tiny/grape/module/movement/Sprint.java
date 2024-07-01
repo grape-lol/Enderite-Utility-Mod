@@ -1,5 +1,6 @@
 package tiny.grape.module.movement;
 
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
@@ -11,7 +12,7 @@ public class Sprint extends ModuleHandler {
     public ModeSetting sprintMode = new ModeSetting("Mode", "Legit", "Legit", "Always Sprinting");
 
     public Sprint() {
-        super("Sprint", "Makes you sprint without pressing shift.", Category.MOVEMENT);
+        super("Sprint", Text.translatable("enderite.description.sprint"), Category.MOVEMENT);
         addSetting(sprintMode);
         addSetting(new KeyBindSetting("Keybind", 0));
     }

@@ -1,5 +1,6 @@
 package tiny.grape.module.movement;
 
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 import tiny.grape.module.ModuleHandler;
@@ -13,7 +14,7 @@ public class TridentBoost extends ModuleHandler {
     NumberSetting upFactor = new NumberSetting("Up Factor", 1, 10, 3, 1);
 
     public TridentBoost() {
-        super("Trident Boost", "description", Category.MOVEMENT);
+        super("Trident Boost", Text.translatable("enderite.description.tridentboost"), Category.MOVEMENT);
         addSetting(factor);
         addSetting(upFactor);
         addSetting(new KeyBindSetting("Keybind", 0));
@@ -23,7 +24,7 @@ public class TridentBoost extends ModuleHandler {
 
     @Override
     public void onTick() {
-        this.setDisplayName("Trident Boost" + Gray + " [F: "+factor.getValue()+" H: "+upFactor.getValue()+"]");
+        this.setDisplayName("Trident Boost" + Gray + " [F: "+factor.getValue()+" U: "+upFactor.getValue()+"]");
         float yaw = (float) Math.toRadians(client.player.getYaw());
         float pitch = (float) Math.toRadians(client.player.getPitch());
         double vSpeed = factor.getValue() / 5;

@@ -5,6 +5,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -20,7 +21,7 @@ public class AutoFarm extends ModuleHandler {
     public NumberSetting range = new NumberSetting("Range", 1f, 5f, 4f, 1f);
 
     public AutoFarm() {
-        super("Auto Farm", "Im a farmer not a miner.", Category.WORLD);
+        super("Auto Farm", Text.translatable("enderite.description.autofarm"), Category.WORLD);
         addSetting(range);
         addSetting(new KeyBindSetting("Keybind", 0));
     }

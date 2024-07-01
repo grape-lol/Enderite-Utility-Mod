@@ -3,6 +3,7 @@ package tiny.grape.module.render;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
@@ -17,7 +18,7 @@ public class Fullbright extends ModuleHandler {
     private static final Formatting Gray = Formatting.GRAY;
 
     public Fullbright() {
-        super("Fullbright", "spooky dark", Category.RENDER);
+        super("Fullbright", Text.translatable("enderite.description.fullbright"), Category.RENDER);
         addSetting(fbMode);
         addSetting(new KeyBindSetting("Keybind", 0));
     }

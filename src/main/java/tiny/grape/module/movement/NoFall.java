@@ -1,6 +1,7 @@
 package tiny.grape.module.movement;
 
 import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
@@ -14,7 +15,7 @@ public class NoFall extends ModuleHandler {
     public ModeSetting mode = new ModeSetting("Mode", "On Ground", "On Ground", "Break Fall");
 
     public NoFall() {
-        super("No Fall", "no fall no damage >:)", Category.MOVEMENT);
+        super("No Fall", Text.translatable("enderite.description.nofall"), Category.MOVEMENT);
         addSetting(mode);
         addSetting(new KeyBindSetting("Keybind", 0));
     }

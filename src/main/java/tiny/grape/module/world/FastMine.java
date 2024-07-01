@@ -1,5 +1,6 @@
 package tiny.grape.module.world;
 
+import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
@@ -11,7 +12,7 @@ public class FastMine extends ModuleHandler {
     private static boolean enabled = false;
 
     public FastMine() {
-        super("Fast Mine", "Breaks blocks faster", Category.WORLD);
+        super("Fast Mine", Text.translatable("enderite.description.fastmine"), Category.WORLD);
         addSetting(new KeyBindSetting("Keybind", 0));
     }
 

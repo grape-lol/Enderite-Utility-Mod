@@ -1,5 +1,6 @@
 package tiny.grape.module.movement;
 
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import tiny.grape.module.ModuleHandler;
@@ -13,7 +14,7 @@ public class VehicleFly extends ModuleHandler {
     private Vec3d oldPos = Vec3d.ZERO;
 
     public VehicleFly() {
-        super("Vehicle Fly", "Fly with vehicles like boats", Category.MOVEMENT);
+        super("Vehicle Fly", Text.translatable("enderite.description.vehiclefly"), Category.MOVEMENT);
         addSetting(new KeyBindSetting("Keybind", 0));
     }
 

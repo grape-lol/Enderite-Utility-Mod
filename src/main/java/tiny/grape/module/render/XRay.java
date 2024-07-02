@@ -11,6 +11,7 @@ import tiny.grape.utils.saving.SettingsManager;
 import java.util.HashSet;
 import java.util.logging.Logger;
 
+// Future: Add a way to allow the user to add and remove specific blocks.
 @SearchTags({"xray","x-ray","x ray","ore finder","orefinder"})
 public class XRay extends ModuleHandler {
     private static final Logger LOGGER = Logger.getLogger(XRay.class.getName());

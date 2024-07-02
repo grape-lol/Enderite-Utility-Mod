@@ -12,6 +12,7 @@ import tiny.grape.utils.InventoryUtils;
 import tiny.grape.utils.saving.ModuleSettings;
 import tiny.grape.utils.saving.SettingsManager;
 
+// Future: Add a way to allow multiple items with priority to the items.
 @SearchTags({"auto offhand", "auto totem"})
 public class AutoOffhand extends ModuleHandler {
     private final String moduleName = "Auto Offhand";

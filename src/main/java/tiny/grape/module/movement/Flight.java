@@ -7,15 +7,22 @@ import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.utils.PacketHelper;
+import tiny.grape.utils.saving.ModuleSettings;
+import tiny.grape.utils.saving.SettingsManager;
 
 @SearchTags({"fly", "flight"})
 public class Flight extends ModuleHandler {
     private int floatingTickCount = 0;
     private Vec3d oldPos = Vec3d.ZERO;
+    private final String moduleName = "Flight";
+    private final KeyBindSetting keyBindSetting;
 
     public Flight() {
         super("Flight", Text.translatable("enderite.description.flight"), Category.MOVEMENT);
-        addSetting(new KeyBindSetting("Keybind", 0));
+        ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
+        keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
+        addSetting(keyBindSetting);
+        this.setEnabled(settings.isEnabled());
     }
 
     @Override
@@ -28,6 +35,7 @@ public class Flight extends ModuleHandler {
             client.player.getAbilities().flying = true;
             client.player.getAbilities().allowFlying = true;
         }
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), true));
     }
 
     @Override
@@ -60,5 +68,6 @@ public class Flight extends ModuleHandler {
             client.player.getAbilities().flying = false;
             client.player.getAbilities().allowFlying = false;
         }
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), false));
     }
 }

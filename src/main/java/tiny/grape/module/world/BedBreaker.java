@@ -11,6 +11,8 @@ import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.NumberSetting;
+import tiny.grape.utils.saving.ModuleSettings;
+import tiny.grape.utils.saving.SettingsManager;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -26,12 +28,18 @@ public class BedBreaker extends ModuleHandler {
     private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private final Set<BlockPos> recentAttempts = new HashSet<>();
 
+    private final String moduleName = "Bed Breaker";
+    private final KeyBindSetting keyBindSetting;
+
     public NumberSetting num = new NumberSetting("Radius", 1, 5, 3, 1);
 
     public BedBreaker() {
         super("Bed Breaker", Text.translatable("enderite.description.bedbreaker"), Category.WORLD);
         addSetting(num);
-        addSetting(new KeyBindSetting("Keybind", 0));
+        ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
+        keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
+        addSetting(keyBindSetting);
+        this.setEnabled(settings.isEnabled());
     }
 
     @Override
@@ -44,6 +52,7 @@ public class BedBreaker extends ModuleHandler {
     public void onEnable() {
         super.onEnable();
         scheduler = Executors.newScheduledThreadPool(1);
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), true));
     }
 
     @Override
@@ -52,6 +61,8 @@ public class BedBreaker extends ModuleHandler {
         if (scheduler != null) {
             scheduler.shutdown();
         }
+
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), false));
     }
 
     private void breakNearbyBeds() {

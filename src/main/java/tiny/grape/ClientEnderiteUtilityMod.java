@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import tiny.grape.gui.screens.clickgui.ClickGUI;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.ModuleManager;
+import tiny.grape.utils.saving.SettingsManager;
 
 public class ClientEnderiteUtilityMod implements ModInitializer, ClientModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("enderite-utility-mod");
@@ -18,10 +19,12 @@ public class ClientEnderiteUtilityMod implements ModInitializer, ClientModInitia
 
 	@Override
 	public void onInitializeClient() {
+		SettingsManager.loadSettings();
 	}
 
 	@Override
 	public void onInitialize() {
+		SettingsManager.loadSettings();
 	}
 
 	public void onKeyPress(int key, int action) {

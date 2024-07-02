@@ -9,19 +9,26 @@ import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 import tiny.grape.module.settings.NumberSetting;
+import tiny.grape.utils.saving.ModuleSettings;
+import tiny.grape.utils.saving.SettingsManager;
 
 @SearchTags({"water walk","waterwalk","jesus","dolphin"})
 public class Jesus extends ModuleHandler {
     public ModeSetting mode = new ModeSetting("Mode", "Static", "Static", "Velocity", "Dolphin");
     public NumberSetting speed = new NumberSetting("Static Speed", 1, 10, 1, 1);
     public NumberSetting velStrength = new NumberSetting("Velocity Strength", 0.0003, 0.3, 0.1, 0.0001);
+    private final String moduleName = "Jesus";
+    private final KeyBindSetting keyBindSetting;
 
     public Jesus() {
         super("Jesus", Text.translatable("enderite.description.jesus"), Category.MOVEMENT);
         addSetting(mode);
         addSetting(speed);
         addSetting(velStrength);
-        addSetting(new KeyBindSetting("Keybind", 0));
+        ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
+        keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
+        addSetting(keyBindSetting);
+        this.setEnabled(settings.isEnabled());
     }
 
     private static final Formatting Gray = Formatting.GRAY;
@@ -76,5 +83,12 @@ public class Jesus extends ModuleHandler {
     @Override
     public void onDisable() {
         super.onDisable();
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), false));
+    }
+
+    @Override
+    public void onEnable() {
+        super.onEnable();
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), true));
     }
 }

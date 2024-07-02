@@ -5,6 +5,8 @@ import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
+import tiny.grape.utils.saving.ModuleSettings;
+import tiny.grape.utils.saving.SettingsManager;
 
 import java.util.HashSet;
 import java.util.logging.Logger;
@@ -17,9 +19,15 @@ public class XRay extends ModuleHandler {
     private static boolean enabled = false;
     private HashSet<String> xrayBlocks = new HashSet<>();
 
+    private final String moduleName = "XRay";
+    private final KeyBindSetting keyBindSetting;
+
     public XRay() {
         super("XRay", Text.translatable("enderite.description.xray"), Category.RENDER);
-        addSetting(new KeyBindSetting("Keybind", 0));
+        ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
+        keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
+        addSetting(keyBindSetting);
+        this.setEnabled(settings.isEnabled());
         rayBlocks();
     }
 
@@ -62,12 +70,14 @@ public class XRay extends ModuleHandler {
     public void onDisable() {
         super.onDisable();
         enabled = false;
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), false));
     }
 
     @Override
     public void onEnable() {
         super.onEnable();
         enabled = true;
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), true));
     }
 
     public static boolean isOn() {

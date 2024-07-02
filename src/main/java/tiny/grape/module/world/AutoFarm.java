@@ -15,15 +15,22 @@ import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.NumberSetting;
+import tiny.grape.utils.saving.ModuleSettings;
+import tiny.grape.utils.saving.SettingsManager;
 
 @SearchTags({"farm", "auto farm", "auto harvest"})
 public class AutoFarm extends ModuleHandler {
     public NumberSetting range = new NumberSetting("Range", 1f, 5f, 4f, 1f);
+    private final String moduleName = "Auto Farm";
+    private final KeyBindSetting keyBindSetting;
 
     public AutoFarm() {
         super("Auto Farm", Text.translatable("enderite.description.autofarm"), Category.WORLD);
         addSetting(range);
-        addSetting(new KeyBindSetting("Keybind", 0));
+        ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
+        keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
+        addSetting(keyBindSetting);
+        this.setEnabled(settings.isEnabled());
     }
 
     @Override
@@ -92,12 +99,16 @@ public class AutoFarm extends ModuleHandler {
     }
 
     @Override
-    public void onDisable() {
-        super.onDisable();
+    public void onEnable() {
+        super.onEnable();
+
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), true));
     }
 
     @Override
-    public void onEnable() {
-        super.onEnable();
+    public void onDisable() {
+        super.onDisable();
+
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), false));
     }
 }

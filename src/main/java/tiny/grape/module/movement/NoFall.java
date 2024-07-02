@@ -9,15 +9,22 @@ import tiny.grape.module.settings.BooleanSetting;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 import tiny.grape.module.settings.NumberSetting;
+import tiny.grape.utils.saving.ModuleSettings;
+import tiny.grape.utils.saving.SettingsManager;
 
 @SearchTags({"nofall", "no fall", "fall damage"})
 public class NoFall extends ModuleHandler {
     public ModeSetting mode = new ModeSetting("Mode", "On Ground", "On Ground", "Break Fall");
+    private final String moduleName = "No Fall";
+    private final KeyBindSetting keyBindSetting;
 
     public NoFall() {
         super("No Fall", Text.translatable("enderite.description.nofall"), Category.MOVEMENT);
         addSetting(mode);
-        addSetting(new KeyBindSetting("Keybind", 0));
+        ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
+        keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
+        addSetting(keyBindSetting);
+        this.setEnabled(settings.isEnabled());
     }
 
     private static final Formatting Gray = Formatting.GRAY;
@@ -43,5 +50,12 @@ public class NoFall extends ModuleHandler {
     @Override
     public void onDisable() {
         super.onDisable();
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), false));
+    }
+
+    @Override
+    public void onEnable() {
+        super.onEnable();
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), true));
     }
 }

@@ -9,24 +9,30 @@ import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
+import tiny.grape.utils.saving.ModuleSettings;
+import tiny.grape.utils.saving.SettingsManager;
 
 @SearchTags({"night vision", "gamma","nightvision","fullbright"})
 public class Fullbright extends ModuleHandler {
-    public ModeSetting fbMode = new ModeSetting("Mode", "Night Vision", "Night Vision", "Gamma");
-    private SimpleOption<Double> originalGamma;
+    public ModeSetting fbMode = new ModeSetting("Mode", "Night Vision", "Night Vision");
+    private final String moduleName = "Fullbright";
+    private final KeyBindSetting keyBindSetting;
 
     private static final Formatting Gray = Formatting.GRAY;
 
     public Fullbright() {
         super("Fullbright", Text.translatable("enderite.description.fullbright"), Category.RENDER);
         addSetting(fbMode);
-        addSetting(new KeyBindSetting("Keybind", 0));
+        ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
+        keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
+        addSetting(keyBindSetting);
+        this.setEnabled(settings.isEnabled());
     }
 
     @Override
     public void onEnable() {
-        originalGamma = client.options.getGamma();
         super.onEnable();
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), true));
     }
 
     @Override
@@ -45,8 +51,6 @@ public class Fullbright extends ModuleHandler {
                                 false
                         )
                 );
-        } else {
-            client.options.getGamma().setValue(1D);
         }
         super.onTick();
     }
@@ -58,7 +62,8 @@ public class Fullbright extends ModuleHandler {
         if (effect != null && effect.getDuration() >= 10000) {
             client.player.removeStatusEffect(StatusEffects.NIGHT_VISION);
         }
-        client.options.getGamma().setValue(originalGamma.getValue());
+
+        SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), false));
         super.onDisable();
     }
 }

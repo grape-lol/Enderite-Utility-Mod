@@ -32,9 +32,10 @@ public class Sprint extends ModuleHandler {
 
         boolean shouldSprint = ((client.player.input.movementForward > 0 && client.player.input.movementSideways > 0) ||
                 (client.player.input.movementForward > 0 && !client.player.isSneaking()));
-        if(sprintMode.isMode("Legit")) {
+
+        if(sprintMode.isMode("Legit") && client.player!=null) {
             client.player.setSprinting(shouldSprint);
-        } else if (sprintMode.isMode("Always Sprinting")) {
+        } else if (sprintMode.isMode("Always Sprinting") && client.player!=null) {
             client.player.setSprinting(true);
         }
         super.onTick();

@@ -1,5 +1,5 @@
 # IMPORTANT
-If you want file saving to work you will need to use the [Modrinth App](https://modrinth.com/app) I made it so it will only check your Modrinth profiles and checks for the specific jar name "enderite-utility-mod-b8.jar" because this is the launcher I use, if you want it to search other ones send a pull request or issue with the code provided.
+If you want file saving to work you will need to use the [Modrinth App](https://modrinth.com/app) I made it so it will only check your Modrinth profiles and checks for the specific jar name "enderite-utility-mod-b8.1.jar" because this is the launcher I use, if you want it to search other ones send a pull request or issue with the code provided.
 
 # How To Build (Or join discord)
 Discord: https://discord.gg/eC45b56btt

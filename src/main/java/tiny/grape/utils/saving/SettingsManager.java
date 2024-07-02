@@ -49,13 +49,13 @@ public class SettingsManager {
                                         System.out.println("Checking for mods directory: " + modsFolder.getPath());
                                         if (modsFolder.exists() && modsFolder.isDirectory()) {
                                             System.out.println("Found mods directory: " + modsFolder.getPath());
-                                            File[] mods = modsFolder.listFiles((dir, name) -> name.equals("enderite-utility-mod-b8.jar"));
+                                            File[] mods = modsFolder.listFiles((dir, name) -> name.equals("enderite-utility-mod-b8.1.jar"));
                                             if (mods != null && mods.length > 0) {
-                                                System.out.println("Found enderite-utility-mod-b8.jar in: " + modsFolder.getPath());
+                                                System.out.println("Found enderite-utility-mod-b8.1.jar in: " + modsFolder.getPath());
                                                 settingsDirectory = modsFolder.getPath();
                                                 return;
                                             } else {
-                                                System.out.println("enderite-utility-mod-b8.jar not found in: " + modsFolder.getPath());
+                                                System.out.println("enderite-utility-mod-b8.1.jar not found in: " + modsFolder.getPath());
                                             }
                                         }
                                     });

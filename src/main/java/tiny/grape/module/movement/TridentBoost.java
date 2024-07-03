@@ -4,7 +4,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 import tiny.grape.module.ModuleHandler;
-import tiny.grape.module.SearchTags;
+import tiny.grape.module.settings.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.NumberSetting;
 import tiny.grape.utils.saving.ModuleSettings;

@@ -8,7 +8,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import tiny.grape.module.ModuleHandler;
-import tiny.grape.module.SearchTags;
+import tiny.grape.module.settings.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.NumberSetting;
 import tiny.grape.utils.saving.ModuleSettings;

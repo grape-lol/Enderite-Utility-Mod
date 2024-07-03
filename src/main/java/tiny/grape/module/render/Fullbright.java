@@ -1,12 +1,11 @@
 package tiny.grape.module.render;
 
-import net.minecraft.client.option.SimpleOption;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
-import tiny.grape.module.SearchTags;
+import tiny.grape.module.settings.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 import tiny.grape.utils.saving.ModuleSettings;

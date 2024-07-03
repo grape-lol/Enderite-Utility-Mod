@@ -58,5 +58,6 @@ public class ModuleManager {
         modules.add(new FastMine());
         modules.add(new VehicleFly());
         modules.add(new BedBreaker());
+        modules.add(new ExampleModule());
     }
 }

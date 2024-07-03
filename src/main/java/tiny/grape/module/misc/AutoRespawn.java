@@ -2,7 +2,7 @@ package tiny.grape.module.misc;
 
 import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
-import tiny.grape.module.SearchTags;
+import tiny.grape.module.settings.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.utils.saving.ModuleSettings;
 import tiny.grape.utils.saving.SettingsManager;

@@ -1,4 +1,4 @@
-package tiny.grape.module;
+package tiny.grape.module.settings;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

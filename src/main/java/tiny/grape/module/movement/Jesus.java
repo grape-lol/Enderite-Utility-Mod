@@ -5,7 +5,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Vec3d;
 import tiny.grape.module.ModuleHandler;
-import tiny.grape.module.SearchTags;
+import tiny.grape.module.settings.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
 import tiny.grape.module.settings.NumberSetting;

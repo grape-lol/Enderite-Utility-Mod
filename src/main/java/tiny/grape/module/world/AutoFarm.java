@@ -1,10 +1,11 @@
 package tiny.grape.module.world;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+import net.minecraft.block.*;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -12,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import tiny.grape.module.ModuleHandler;
-import tiny.grape.module.SearchTags;
+import tiny.grape.module.settings.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.NumberSetting;
 import tiny.grape.utils.saving.ModuleSettings;
@@ -50,8 +51,10 @@ public class AutoFarm extends ModuleHandler {
                 for (int z = -radius; z <= radius; z++) {
                     BlockPos currentPos = playerPos.add(x, y, z);
 
+                    BlockState blockState = client.world.getBlockState(currentPos);
+
                     // Harvest sugar cane
-                    if (client.world.getBlockState(currentPos).getBlock() == Blocks.SUGAR_CANE) {
+                    if (blockState.getBlock() == Blocks.SUGAR_CANE) {
                         BlockPos belowPos = currentPos.down();
                         if (client.world.getBlockState(belowPos).getBlock() == Blocks.SUGAR_CANE) {
                             BlockPos twoBelowPos = currentPos.down(2);
@@ -59,6 +62,19 @@ public class AutoFarm extends ModuleHandler {
                                 assert client.interactionManager != null;
                                 client.interactionManager.updateBlockBreakingProgress(currentPos, breakDirection);
                             }
+                        }
+                    }
+
+                    // Harvest fully grown crops
+                    if (blockState.getBlock() instanceof CropBlock) {
+                        if (blockState.getBlock() instanceof BeetrootsBlock) {
+                            if (blockState.get(Properties.AGE_3) == 3) {
+                                assert client.interactionManager != null;
+                                client.interactionManager.updateBlockBreakingProgress(currentPos, breakDirection);
+                            }
+                        } else if (blockState.get(Properties.AGE_7) == 7) {
+                            assert client.interactionManager != null;
+                            client.interactionManager.updateBlockBreakingProgress(currentPos, breakDirection);
                         }
                     }
 

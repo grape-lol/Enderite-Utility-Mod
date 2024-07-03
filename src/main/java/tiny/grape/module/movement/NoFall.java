@@ -4,11 +4,9 @@ import net.minecraft.network.packet.c2s.play.PlayerMoveC2SPacket;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import tiny.grape.module.ModuleHandler;
-import tiny.grape.module.SearchTags;
-import tiny.grape.module.settings.BooleanSetting;
+import tiny.grape.module.settings.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.module.settings.ModeSetting;
-import tiny.grape.module.settings.NumberSetting;
 import tiny.grape.utils.saving.ModuleSettings;
 import tiny.grape.utils.saving.SettingsManager;
 

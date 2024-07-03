@@ -9,11 +9,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class SettingsManager {
     private static final String MODRINTH_PROFILES_BASE_DIR = Paths.get(System.getProperty("user.home"), "AppData", "Roaming", "com.modrinth.theseus", "profiles").toString();

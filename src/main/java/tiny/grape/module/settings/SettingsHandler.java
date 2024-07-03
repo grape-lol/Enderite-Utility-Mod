@@ -1,7 +1,5 @@
 package tiny.grape.module.settings;
 
-import tiny.grape.module.ModuleHandler;
-
 public class SettingsHandler {
     private String name;
     private boolean visble = true;

@@ -2,7 +2,6 @@ package tiny.grape.gui.screens.clickgui.settings;
 
 import net.minecraft.client.gui.DrawContext;
 import tiny.grape.gui.screens.clickgui.ModuleButton;
-import tiny.grape.module.settings.ModeSetting;
 import tiny.grape.module.settings.NumberSetting;
 import tiny.grape.module.settings.SettingsHandler;
 

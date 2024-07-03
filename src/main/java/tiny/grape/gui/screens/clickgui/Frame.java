@@ -3,7 +3,6 @@ package tiny.grape.gui.screens.clickgui;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.MutableText;
-import net.minecraft.text.Text;
 import tiny.grape.module.ModuleHandler;
 import tiny.grape.module.ModuleManager;
 

@@ -1,9 +1,6 @@
 package tiny.grape.mixin;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.debug.DebugRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.hit.EntityHitResult;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

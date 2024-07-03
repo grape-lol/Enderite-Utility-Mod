@@ -26,7 +26,6 @@ public class ClientEnderiteUtilityMod implements ModInitializer, ClientModInitia
 
 	@Override
 	public void onInitialize() {
-		SettingsManager.loadSettings();
 	}
 
 	public void onKeyPress(int key, int action) {

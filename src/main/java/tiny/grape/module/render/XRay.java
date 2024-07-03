@@ -20,11 +20,11 @@ public class XRay extends ModuleHandler {
     private static boolean enabled = false;
     private HashSet<String> xrayBlocks = new HashSet<>();
 
-    private final String moduleName = "XRay";
+    private final String moduleName = "X-ray";
     private final KeyBindSetting keyBindSetting;
 
     public XRay() {
-        super("XRay", Text.translatable("enderite.description.xray"), Category.RENDER);
+        super("X-ray", Text.translatable("enderite.description.xray"), Category.RENDER);
         ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
         keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
         addSetting(keyBindSetting);

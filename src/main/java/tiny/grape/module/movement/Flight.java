@@ -4,6 +4,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import tiny.grape.module.ModuleHandler;
+import tiny.grape.module.settings.NumberSetting;
 import tiny.grape.module.settings.SearchTags;
 import tiny.grape.module.settings.KeyBindSetting;
 import tiny.grape.utils.PacketHelper;
@@ -17,10 +18,13 @@ public class Flight extends ModuleHandler {
     private final String moduleName = "Flight";
     private final KeyBindSetting keyBindSetting;
 
+    public NumberSetting speed = new NumberSetting("Speed", 0.1, 5, 1, 0.1);
+
     public Flight() {
         super("Flight", Text.translatable("enderite.description.flight"), Category.MOVEMENT);
         ModuleSettings settings = SettingsManager.getModuleSettings(moduleName);
         keyBindSetting = new KeyBindSetting("Keybind", settings.getKey(), moduleName);
+        addSetting(speed);
         addSetting(keyBindSetting);
         this.setEnabled(settings.isEnabled());
     }
@@ -32,8 +36,9 @@ public class Flight extends ModuleHandler {
         oldPos = client.player.getPos();
         // Enable flying
         if (client.player != null) {
+            client.player.jump();
             client.player.getAbilities().flying = true;
-            client.player.getAbilities().allowFlying = true;
+            client.player.getAbilities().setFlySpeed(speed.getValueFloat());
         }
         SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), true));
     }
@@ -66,7 +71,6 @@ public class Flight extends ModuleHandler {
         // Disable flying
         if (client.player != null) {
             client.player.getAbilities().flying = false;
-            client.player.getAbilities().allowFlying = false;
         }
         SettingsManager.setModuleSettings(moduleName, new ModuleSettings(keyBindSetting.getKey(), false));
     }
